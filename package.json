@@ -1,0 +1,41 @@
+{
+  "name": "asmama",
+  "version": "1.0.0",
+  "description": "asmama",
+  "main": "gulpfile.js",
+  "scripts": {
+    "start": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tuqulore/asmama.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.17.5",
+    "gulp": "^3.9.1",
+    "gulp-imagemin": "^4.0.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-postcss": "^7.0.0",
+    "gulp-pug": "^3.1.0",
+    "gulp-sass": "^2.3.2",
+    "gulp-sass-glob": "^1.0.8",
+    "gulp-sourcemaps": "^2.6.1",
+    "imagemin-mozjpeg": "^6.0.0",
+    "imagemin-optipng": "^5.2.1",
+    "imagemin-pngquant": "^5.0.1",
+    "imagemin-svgo": "^6.0.0",
+    "postcss-cssnext": "^3.0.2",
+    "postcss-scss": "^1.0.2",
+    "sass-module-importer": "^1.4.0",
+    "stylefmt": "^6.0.0",
+    "webpack": "^4.2.0",
+    "webpack-stream": "^4.0.3"
+  },
+  "dependencies": {
+    "fs-extra": "^5.0.0",
+    "normalize.css": "^7.0.0",
+    "sass-mediaqueries": "^1.6.1"
+  }
+}
