@@ -1,0 +1,25 @@
+@import "sass-mediaqueries/_media-queries.scss";
+$color-main: #333333;
+$color-accent: #27792c;
+$font-size-base: 14px;
+$font-weight-light: 200;
+$font-weight-normal: 400;
+$font-weight-bold: 500;
+$font-weight-black: 700;
+$content-side-width: 20px;
+$content-max-width: 1200px;
+$tablet-width: 800px - 1px;
+$mobile-width: 600px - 1px;
+$letter-spacing-size: 0.08rem;
+$content-width: 1000px;
+$bdc: #ccc;
+
+html {
+  //background-color: $color-base;
+  color: $color-main;
+  font-size: $font-size-base;
+  font-weight: $font-weight-normal;
+  letter-spacing: $letter-spacing-size;
+  font-family: "Noto Sans Japanese", sans-serif;
+  //font-family: "F+UD-筑紫明朝 R", "F+UD-TsukuMin R";
+}

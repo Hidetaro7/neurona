@@ -1,0 +1,11 @@
+@mixin fb($a: space-between, $b: center) {
+  display: flex;
+  justify-content: $a;
+  align-items: $b;
+}
+
+@mixin sp-screen() {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
