@@ -264,11 +264,19 @@ body {
 
   li {
     border-bottom: 1px solid #ccc;
+    padding: 15px 0;
 
     a {
       display: block;
-      padding: 15px 0;
       text-decoration: none;
+    }
+
+    span {
+      &.date {
+        color: #888;
+        margin-right: 0.5rem;
+        font-size: 90%;
+      }
     }
   }
 }
