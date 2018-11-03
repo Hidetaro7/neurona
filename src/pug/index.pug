@@ -6,8 +6,11 @@ block content
 	include /_header
 
 	.hero-image
-		h1.main-title
-			img(src="./img/main_ttl.png", alt="ニューロナ")
+		iframe(width="1024" height="576" src="https://www.youtube.com/embed/l_LJgFMkEk8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
+		.video-cover
+		//-
+			h1.main-title
+				img(src="./img/main_ttl.png", alt="ニューロナ")
 
 	main.main-content
 		
@@ -117,6 +120,10 @@ block content
 						.demo-movie
 							iframe(width="300" height="168" src="https://www.youtube.com/embed/HZiYA8AMBu8?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen)
 
+		.instagram
+			h2.section-title INSTAGRAM
+			.instagram-container
+
 		.music-video
 			h2.section-title VIDEO
 
@@ -128,20 +135,20 @@ block content
 			ul
 				li
 					span.date 2017.12
-					span 5曲入り1st EP 「突き放すよ、これが愛だ君への愛だ」（初音ミク）をリリース
+					span 1st EP 「突き放すよ、これが愛だ君への愛だ」（初音ミク）をリリース
 				li
 					span.date 2017.12
-					span ヴォーカルにTOMO加入
+					span ヴォーカルにTomo加入
 				li
-					span.date 2018.3
-					span 6曲入り2nd EP 「ナガスギタ春」をリリース
+					span.date 2018.03
+					span 2nd EP 「ナガスギタ春」をリリース
 				li
-					a(href="" target="_blank")
+					a(href="http://fmsetouchi.amamin.jp" target="_blank")
 						span.date 2018.06
 						span エフエムせとうち「サトメグ放送局」で放送されました
 				li
-					span.date 2018.7
-					span 6曲入り3rd EP 「空蝉〜Utsusemi〜」をリリース
+					span.date 2018.07
+					span 3rd EP 「空蝉〜Utsusemi〜」をリリース
 
 		.member
 			h2.section-title WANTED
@@ -212,6 +219,7 @@ block content
 		include /_footer
 
 	
+	script( src="./js/main.bundle.js")
 	//-
 		script(src="https://code.jquery.com/jquery-2.2.4.min.js")
 		script(src="./js/jquery.inview.min.js")

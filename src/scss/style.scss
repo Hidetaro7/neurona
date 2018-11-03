@@ -15,8 +15,47 @@ body {
   top: 0;
   left: 0;
   z-index: 10;
-  background-color: rgba(#fff, 0.4);
-  border-bottom: 1px solid #cecece;
+  background-color: rgba(#000, 0.4);
+  //border-bottom: 1px solid rgba(#666, 0.3);
+}
+
+.p-gnav {
+  ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    li {
+      a {
+        text-decoration: none;
+        font-weight: bold;
+        display: block;
+        color: #ccc;
+        padding: 10px 1rem;
+        position: relative;
+
+        &::after {
+          content: "";
+          display: block;
+          background-color: #ccc;
+          position: absolute;
+          width: 100%;
+          height: 3px;
+          border-radius: 4px;
+          bottom: -5px;
+          left: 0;
+          transform: scale(0);
+          transition: 0.2s;
+        }
+
+        &:hover {
+          &::after {
+            transform: scale(1);
+          }
+        }
+      }
+    }
+  }
 }
 
 .p-main-header-inner {
@@ -42,6 +81,30 @@ body {
   }
 }
 
+.p-contact {
+  display: flex;
+  align-items: center;
+}
+
+.iconbtn {
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+  margin-right: 10px;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+
+  span {
+    display: block;
+    font-size: 9px;
+    text-decoration: none;
+    margin-top: 4px;
+  }
+}
+
 .section-title {
   text-align: center;
   font-size: 260%;
@@ -53,7 +116,7 @@ body {
   position: relative;
   @include fb(center);
 
-  &::before {
+  /* &::before {
     content: "";
     display: block;
     width: 100%;
@@ -64,9 +127,38 @@ body {
     position: absolute;
     left: 0;
     top: 0;
-  }
+  } */
   width: 100%;
-  height: 100vh;
+}
+
+.video-cover {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  background: url(../img/sai.jpg) no-repeat center;
+  background-size: cover;
+}
+
+.play-btn {
+  position: absolute;
+  z-index: 3;
+  left: calc(50% - 70px);
+  top: calc(50% - 70px);
+  color: rgba(#fff, 0.5);
+  font-size: 60px;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background-color: rgba(#000, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgba(#ccc, 0.5);
 }
 
 .main-title {
@@ -93,8 +185,8 @@ body {
   }
 
   ul {
-    @include fb(space-between, flex-start);
-    flex-wrap: no-wrap;
+    @include fb(space-between, stretch);
+    flex-wrap: wrap;
     @include sp-screen {
       flex-direction: column;
       flex-wrap: wrap;
@@ -102,9 +194,16 @@ body {
   }
 
   li {
-    flex-basis: 1px;
+    flex-basis: 49%;
     flex-grow: 1;
-    max-width: 300px;
+    max-width: calc(50% - 5px);
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    overflow: hidden;
 
     @include sp-screen {
       max-width: initial;
@@ -114,26 +213,17 @@ body {
   }
 
   figure {
+    width: 35%;
+    position: relative;
+
     a {
       text-decoration: none;
-      transition: 0.2s;
       position: relative;
       display: block;
-
-      &:hover {
-        transform: scale(1.05);
-      }
       @include sp-screen {
         width: 70%;
         margin: auto;
       }
-    }
-
-    img {
-      padding: 10px;
-      background-color: #eee;
-      box-shadow: 0 1px 3px #ccc;
-      border-radius: 4px;
     }
   }
 
@@ -143,17 +233,42 @@ body {
     font-size: 100%;
   }
 
+  .comming-soon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 90%;
+    line-height: 1.6;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 120%;
+  }
+
   .content {
     text-align: center;
+    flex-grow: 1;
+    flex-basis: 1px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 1em;
+
+    h3 {
+      margin: 0;
+    }
   }
 
   .release-date {
-    font-size: 80%;
-    color: #999;
+    font-size: 90%;
+    font-weight: bold;
   }
 
   .store-link {
-    margin: 15px 0;
+    margin: 5px 0;
 
     a {
       line-height: 1;
@@ -231,6 +346,16 @@ body {
       height: calc(56.25vw - 2rem);
     }
   }
+
+  .music-video-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    iframe {
+      width: 49%;
+    }
+  }
 }
 
 .member {
@@ -248,6 +373,33 @@ body {
   }
 }
 
+.instagram {
+  //width: 700px;
+  margin: auto;
+
+  .instagram-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .insta-item {
+    width: 220px;
+    height: 220px;
+    margin-bottom: 48px;
+  }
+
+  .insta-thumbnail {
+    width: 220px;
+    height: 220px;
+    border-radius: 2px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+}
+
 .media {
   @include sp-screen {
     padding: 0 2rem;
@@ -255,16 +407,22 @@ body {
 
   ul {
     width: 700px;
+    height: 200px;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
     margin: auto;
-    border-top: 1px solid #ccc;
+    border: 1px solid #ccc;
+    padding: 1em;
+    border-radius: 4px;
+    //border-top: 1px solid #ccc;
     @include sp-screen {
       width: auto;
     }
   }
 
   li {
-    border-bottom: 1px solid #ccc;
-    padding: 15px 0;
+    //border-bottom: 1px solid #ccc;
+    padding: 2px 0;
 
     a {
       display: block;
