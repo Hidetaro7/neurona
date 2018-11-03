@@ -23,16 +23,20 @@ Vue.component("insta-card", {
     return {};
   },
   template: `
-<div class="insta-card">
-<div class="insta-thumbnail" v-bind:style="{ 'background-image': 'url(' + myData.id + ')' }">
-		<div class="insta-title">{{myData.id}}</div>
+		<div class="insta-card">
+		
+	<video controls :src="myData.videos.low_resolution.url" :poster="myData.images.standard_resolution.url"></video>
+		<div class="data-contents">
+		<div class="insta-likes"><i class="fas fa-heart"></i><span>{{myData.likes.count}}</span></div>
+		<a class="insta-link" :href="myData.link" target="_blank"><i class="fab fa-instagram"></i></a>
+		</div>
 	</div>
 	
 </div>
-`,
-  mounted() {
-    //console.log(this.mydata);
-  }
+
+<!--<div class="insta-thumbnail" v-bind:style="{ 'background-image': 'url(' + myData.images.standard_resolution.url + ')' }"><div class="insta-title">{{myData.caption.text}}</div><div class="insta-user-fullname">{{myData.user.full_name}}</div>
+<img :src="myData.user.profile_picture" :alt="myData.user.full_name">-->
+`
 });
 
 /* 
@@ -42,23 +46,28 @@ const apps = new Vue({
   el: "#app",
   components: ["insta-card"],
   data: {
-    instadata: []
+    instadata: [],
+    isVideoPlay: false,
+    action: "stopVideo"
   },
   created() {
-    axios.get("https://tuqulore.com/neurona/json/insta.php").then(response => {
-      this.instadata = response;
-
-      console.log(response);
+    axios.post("https://tuqulore.com/neurona/json/insta.php").then(response => {
+      this.instadata = response.data.data;
     });
-    /* instajson.then(instadata => {
-			this.instadata = instadata;
-			console.log(instadata);
-			this.createInstaCard();
-		}); */
   },
   methods: {
-    createInstaCard: function() {
-      //console.log(this.instadata.data);
+    changeVideoMode: function() {
+      this.isVideoPlay = !this.isVideoPlay;
+      this.action = this.isVideoPlay ? "playVideo" : "pauseVideo";
+      this.videoControl();
+    },
+    videoControl: function(action) {
+      // video hero image
+      const videoWindow = document.querySelector(".hero-video").contentWindow;
+      videoWindow.postMessage(
+        '{"event":"command","func":"' + this.action + '","args":[]}',
+        "*"
+      );
     }
   }
 });
