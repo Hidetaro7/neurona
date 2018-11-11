@@ -217,6 +217,7 @@ body {
   ul {
     @include fb(space-between, stretch);
     flex-wrap: wrap;
+    margin-top: 10px;
     @include sp-screen {
       flex-direction: column;
       flex-wrap: nowrap;
@@ -239,7 +240,7 @@ body {
     @include sp-screen {
       max-width: initial;
       max-width: auto;
-      margin-bottom: 2rem;
+      margin-bottom: 10px;
       flex-basis: auto;
       flex-grow: auto;
       flex-direction: column;
@@ -251,7 +252,8 @@ body {
     width: 35%;
     position: relative;
     @include sp-screen {
-      width: 100%;
+      width: 50%;
+      margin: 10px auto;
     }
 
     a {
@@ -261,6 +263,10 @@ body {
       @include sp-screen {
         width: 100%;
         margin: auto;
+
+        img {
+          border-radius: 4px;
+        }
       }
     }
   }
@@ -296,6 +302,7 @@ body {
     padding: 0.8rem 1em;
     @include sp-screen {
       display: block;
+      padding-top: 0;
     }
 
     h3 {
@@ -335,13 +342,14 @@ body {
     color: #555;
     position: absolute;
     z-index: 2;
-    bottom: 20px;
-    right: 20px;
+    bottom: 5px;
+    right: 5px;
     @include fb();
     background-color: rgba(#fff, 0.8);
     border-radius: 40px;
-    padding: 4px 12px;
+    padding: 2px 6px;
     line-height: 1;
+    font-size: 9px;
 
     i {
       &::before {
@@ -349,13 +357,11 @@ body {
         font-family: "Ionicons";
         font-style: normal;
       }
-      font-size: 14px;
       margin-right: 5px;
     }
 
     span {
-      font-size: 10px;
-      font-weight: bold;
+      font-size: 9px;
     }
   }
 
@@ -437,7 +443,8 @@ body {
     justify-content: flex-start;
     align-items: flex-start;
     @include sp-screen {
-      display: block;
+      justify-content: space-between;
+      padding: 0 10px;
     }
   }
 
@@ -455,9 +462,9 @@ body {
     border-radius: 4px;
 
     @include sp-screen {
-      width: calc(100vw - 40px);
-      height: calc(100vw - 40px);
-      margin: 0 auto 20px;
+      width: calc(50vw - 15px);
+      height: calc(50vw - 15px);
+      margin: 0 0 10px;
     }
 
     video {
