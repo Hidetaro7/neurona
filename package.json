@@ -19,7 +19,7 @@
     "gulp-plumber": "^1.1.0",
     "gulp-postcss": "^7.0.0",
     "gulp-pug": "^3.1.0",
-    "gulp-sass": "^2.3.2",
+    "gulp-sass": "^4.0.2",
     "gulp-sass-glob": "^1.0.8",
     "gulp-sourcemaps": "^2.6.1",
     "imagemin-mozjpeg": "^6.0.0",

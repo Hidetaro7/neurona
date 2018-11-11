@@ -15,8 +15,51 @@ body {
   top: 0;
   left: 0;
   z-index: 10;
-  background-color: rgba(#fff, 0.4);
-  border-bottom: 1px solid #cecece;
+  background-color: rgba(#000, 0.4);
+  //border-bottom: 1px solid rgba(#666, 0.3);
+}
+
+.p-gnav {
+  @include sp-screen {
+    display: none;
+  }
+
+  ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    li {
+      a {
+        text-decoration: none;
+        font-weight: bold;
+        display: block;
+        color: #ccc;
+        padding: 10px 1rem;
+        position: relative;
+
+        &::after {
+          content: "";
+          display: block;
+          background-color: #ccc;
+          position: absolute;
+          width: 100%;
+          height: 3px;
+          border-radius: 4px;
+          bottom: -5px;
+          left: 0;
+          transform: scale(0);
+          transition: 0.2s;
+        }
+
+        &:hover {
+          &::after {
+            transform: scale(1);
+          }
+        }
+      }
+    }
+  }
 }
 
 .p-main-header-inner {
@@ -42,31 +85,110 @@ body {
   }
 }
 
+.p-contact {
+  display: flex;
+  align-items: center;
+}
+
+.iconbtn {
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+  margin-right: 10px;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+  @include sp-screen {
+    padding: 4px 12px;
+    margin-right: 0;
+  }
+
+  span {
+    display: block;
+    font-size: 9px;
+    text-decoration: none;
+    margin-top: 4px;
+
+    @include sp-screen {
+      display: none;
+    }
+  }
+}
+
 .section-title {
   text-align: center;
   font-size: 260%;
   font-weight: normal;
   font-family: "Montserrat", sans-serif;
+  margin-bottom: 0;
+  @include sp-screen {
+    font-size: 120%;
+  }
+}
+
+.desc {
+  margin-top: 0;
+  font-size: 90%;
 }
 
 .hero-image {
   position: relative;
   @include fb(center);
-
-  &::before {
-    content: "";
-    display: block;
-    width: 100%;
-    height: 100%;
-    background: url(../img/aotaro_main.jpg) center no-repeat;
-    background-size: cover;
-    opacity: 0.2;
-    position: absolute;
-    left: 0;
-    top: 0;
-  }
+  margin-top: 70px;
   width: 100%;
-  height: 100vh;
+  @include sp-screen {
+    width: 100vw;
+  }
+}
+
+.video-cover {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  background: url(../img/sai.jpg) no-repeat center;
+  background-size: cover;
+  @include sp-screen {
+    display: none;
+  }
+}
+
+.hero-video {
+  @include sp-screen {
+    width: 100vw;
+    height: calc(100vw * 0.5625);
+  }
+}
+
+.play-btn {
+  position: absolute;
+  z-index: 3;
+  left: calc(50% - 70px);
+  top: calc(50% - 70px);
+  color: rgba(#fff, 0.5);
+  font-size: 60px;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background-color: rgba(#000, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgba(#ccc, 0.5);
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
+  @include sp-screen {
+    display: none;
+  }
 }
 
 .main-title {
@@ -89,51 +211,63 @@ body {
 
 .discography-top {
   @include sp-screen {
-    padding: 0 2rem;
+    padding: 0 10px;
   }
 
   ul {
-    @include fb(space-between, flex-start);
-    flex-wrap: no-wrap;
+    @include fb(space-between, stretch);
+    flex-wrap: wrap;
+    margin-top: 10px;
     @include sp-screen {
       flex-direction: column;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
+      display: block;
     }
   }
 
   li {
-    flex-basis: 1px;
+    flex-basis: 49%;
     flex-grow: 1;
-    max-width: 300px;
+    max-width: calc(50% - 5px);
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    overflow: hidden;
 
     @include sp-screen {
       max-width: initial;
       max-width: auto;
-      margin-bottom: 2rem;
+      margin-bottom: 10px;
+      flex-basis: auto;
+      flex-grow: auto;
+      flex-direction: column;
+      overflow: visible;
     }
   }
 
   figure {
-    a {
-      text-decoration: none;
-      transition: 0.2s;
-      position: relative;
-      display: block;
-
-      &:hover {
-        transform: scale(1.05);
-      }
-      @include sp-screen {
-        width: 70%;
-        margin: auto;
-      }
+    width: 35%;
+    position: relative;
+    @include sp-screen {
+      width: 50%;
+      margin: 10px auto;
     }
 
-    img {
-      padding: 10px;
-      background-color: #eee;
-      box-shadow: 0 1px 3px #ccc;
-      border-radius: 4px;
+    a {
+      text-decoration: none;
+      position: relative;
+      display: block;
+      @include sp-screen {
+        width: 100%;
+        margin: auto;
+
+        img {
+          border-radius: 4px;
+        }
+      }
     }
   }
 
@@ -143,17 +277,51 @@ body {
     font-size: 100%;
   }
 
+  .comming-soon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 90%;
+    line-height: 1.6;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 120%;
+  }
+
   .content {
     text-align: center;
+    flex-grow: 1;
+    flex-basis: 1px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0.8rem 1em;
+    @include sp-screen {
+      display: block;
+      padding-top: 0;
+    }
+
+    h3 {
+      margin: 0;
+    }
   }
 
   .release-date {
-    font-size: 80%;
-    color: #999;
+    font-size: 90%;
+    font-weight: bold;
   }
 
   .store-link {
-    margin: 15px 0;
+    margin: 5px 0;
+
+    @include sp-screen {
+      display: flex;
+      justify-content: space-between;
+    }
 
     a {
       line-height: 1;
@@ -164,7 +332,7 @@ body {
       img {
         width: 26px;
         @include sp-screen {
-          width: 34px;
+          width: 28px;
         }
       }
     }
@@ -174,13 +342,14 @@ body {
     color: #555;
     position: absolute;
     z-index: 2;
-    bottom: 20px;
-    right: 20px;
+    bottom: 5px;
+    right: 5px;
     @include fb();
     background-color: rgba(#fff, 0.8);
     border-radius: 40px;
-    padding: 4px 12px;
+    padding: 2px 6px;
     line-height: 1;
+    font-size: 9px;
 
     i {
       &::before {
@@ -188,13 +357,11 @@ body {
         font-family: "Ionicons";
         font-style: normal;
       }
-      font-size: 14px;
       margin-right: 5px;
     }
 
     span {
-      font-size: 10px;
-      font-weight: bold;
+      font-size: 9px;
     }
   }
 
@@ -231,6 +398,24 @@ body {
       height: calc(56.25vw - 2rem);
     }
   }
+
+  .music-video-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    iframe {
+      width: 49%;
+    }
+    @include sp-screen {
+      display: block;
+
+      iframe {
+        width: 100vw;
+        height: 56.25vw;
+      }
+    }
+  }
 }
 
 .member {
@@ -248,6 +433,90 @@ body {
   }
 }
 
+.instagram {
+  //width: 700px;
+  margin: auto;
+
+  .instagram-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    @include sp-screen {
+      justify-content: space-between;
+      padding: 0 10px;
+    }
+  }
+
+  .insta-card {
+    width: calc(1024px / 4 - 2px);
+    height: calc(1024px / 4 - 2px);
+    //margin-bottom: 4px;
+    margin: 0 1px 2px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: #333;
+    border-radius: 4px;
+
+    @include sp-screen {
+      width: calc(50vw - 15px);
+      height: calc(50vw - 15px);
+      margin: 0 0 10px;
+    }
+
+    video {
+      display: block;
+      width: 100%;
+    }
+
+    .data-contents {
+      position: absolute;
+      top: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgba(#333, 0.5);
+      width: 100%;
+      padding: 3px 16px;
+      color: #ccc;
+
+      .insta-likes {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        span {
+          margin-left: 5px;
+          font-weight: bold;
+          font-size: 10px;
+        }
+      }
+
+      .insta-link {
+        font-size: 26px;
+      }
+
+      a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+      }
+    }
+  }
+
+  /* .insta-thumbnail {
+    width: 220px;
+    height: 220px;
+    border-radius: 2px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+  } */
+}
+
 .media {
   @include sp-screen {
     padding: 0 2rem;
@@ -255,16 +524,22 @@ body {
 
   ul {
     width: 700px;
+    height: 200px;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
     margin: auto;
-    border-top: 1px solid #ccc;
+    border: 1px solid #ccc;
+    padding: 1em;
+    border-radius: 4px;
+    //border-top: 1px solid #ccc;
     @include sp-screen {
       width: auto;
     }
   }
 
   li {
-    border-bottom: 1px solid #ccc;
-    padding: 15px 0;
+    //border-bottom: 1px solid #ccc;
+    padding: 2px 0;
 
     a {
       display: block;
@@ -291,12 +566,14 @@ body {
     flex-wrap: no-wrap;
     @include sp-screen {
       flex-direction: column;
+      display: block;
     }
   }
 
   li {
-    max-width: 300px;
-    margin: 0 20px;
+    flex-grow: 1;
+    flex-basis: 1px;
+    margin: 0 2rem;
     @include sp-screen {
       margin: 0;
       margin-bottom: 2rem;
@@ -330,7 +607,6 @@ body {
 
   .supporter-profile {
     text-align: left;
-    font-size: 80%;
     @include sp-screen {
       font-size: 100%;
     }
