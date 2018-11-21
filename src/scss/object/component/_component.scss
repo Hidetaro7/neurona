@@ -2,16 +2,20 @@
   padding: 10px 10px;
   text-align: center;
   display: inline-block;
-  font-size: 70%;
+  font-size: 100%;
   color: $color-accent;
   text-decoration: none;
-  border: 1px solid rgba($color-accent, .5);
+  border: 1px solid rgba($color-accent, 0.5);
+
+  i {
+    margin-right: 10px;
+  }
 }
 
 .c-progress {
   width: 85%;
   height: 3px;
-  background-color: rgba(#999, .4);
+  background-color: rgba(#999, 0.4);
   @include sp-screen {
     flex-grow: 1;
     flex-basis: 60%;
@@ -21,7 +25,7 @@
 .c-progress__bar {
   width: 0%;
   height: 100%;
-  background-color: rgba(rgb(20, 20, 20), .4);
+  background-color: rgba(rgb(20, 20, 20), 0.4);
 }
 
 .c-audio__volume {
@@ -70,7 +74,7 @@
 
 .c-audio__mute {
   text-align: center;
-  background-color: rgba(#fff, .8);
+  background-color: rgba(#fff, 0.8);
   border-radius: 6px;
   padding: 10px 0;
   width: 260px;

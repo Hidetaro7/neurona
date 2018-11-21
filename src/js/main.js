@@ -27,7 +27,7 @@ Vue.component("insta-card", {
 		
 	<video controls :src="myData.videos.low_resolution.url" :poster="myData.images.standard_resolution.url"></video>
 		<div class="data-contents">
-		<div class="insta-likes"><i class="fas fa-heart"></i><span>{{myData.likes.count}}</span></div>
+		<div class="insta-likes"><i class="fal fa-heart"></i><span>{{myData.likes.count}}</span></div>
 		<a class="insta-link" :href="myData.link" target="_blank"><i class="fab fa-instagram"></i></a>
 		</div>
 	</div>
