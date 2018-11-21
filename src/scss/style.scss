@@ -353,8 +353,8 @@ body {
 
     i {
       &::before {
-        content: "\f42b";
-        font-family: "Ionicons";
+        content: "\f008";
+        font-family: "Font Awesome 5 Pro";
         font-style: normal;
       }
       margin-right: 5px;
@@ -429,7 +429,6 @@ body {
   li {
     list-style-type: disc;
     margin-left: 30px;
-    font-size: 80%;
   }
 }
 
@@ -497,6 +496,11 @@ body {
 
       .insta-link {
         font-size: 26px;
+
+        i {
+          font-family: "Font Awesome 5 Brands";
+          font-weight: normal;
+        }
       }
 
       a {
