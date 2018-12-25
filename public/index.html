@@ -11,13 +11,13 @@
       content="誰にでも耳に残るメロディーやフレーズがとてもキャッチー。音楽集団「ニューロナ」のオフィシャルサイトです。4作名にして初のシングル曲「サイのツノのように」全力配信中です！"
     />
     <meta property="og:title" content="ニューロナ オフィシャルサイト" />
-    <meta property="og:type" content="website">
+    <meta property="og:type" content="website" />
     <meta
       property="og:image"
       content="https://tuqulore.com/neurona/img/ogp_1st-single.jpg"
     />
-    <meta property="og:url" content="https://tuqulore.com/neurona/">
-    <meta property="og:site_name" content="ニューロナ オフィシャルサイト">
+    <meta property="og:url" content="https://tuqulore.com/neurona/" />
+    <meta property="og:site_name" content="ニューロナ オフィシャルサイト" />
     <meta
       property="og:description"
       content="誰にでも耳に残るメロディーやフレーズがとてもキャッチー。音楽集団「ニューロナ」"
@@ -81,7 +81,7 @@
           class="hero-video"
           width="1024"
           height="576"
-          src="https://www.youtube.com/embed/l_LJgFMkEk8?enablejsapi=1&rel=0"
+          src="https://www.youtube.com/embed/Ii7sXmPmyiY?enablejsapi=1&rel=0"
           frameborder="0"
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
@@ -96,65 +96,17 @@
           <h2 class="section-title">NEWS</h2>
           <div class="tac desc">ニューロナの最新の活動情報です</div>
           <ul>
-            <li>
-              <a href="#id-disco"
-                ><span class="date">2018.11</span
-                ><span>「サイのツノのように」をリリース</span></a
-              >
-            </li>
-            <li>
-              <span class="date">2018.12</span
-              ><span>通算5枚目のミニアルバムリリース予定！</span>
-            </li>
-            <li>
-              <a href="https://youtu.be/l_LJgFMkEk8" target="_blank"
-                ><span class="date">2018.11</span
-                ><span
-                  >「サイのツノのように」 MV[ Trailer ]が公開されました</span
+            <li v-for="item in news" v-if="!item.hide">
+              <a v-if="item.link!==''" v-bind:href="item.link" target="_blank"
+                ><span class="date" v-text="item.date"></span
+                ><span v-text="item.title"
+                  >「サイのツノのように」をリリース</span
                 ></a
               >
-            </li>
-            <li>
-              <a href="https://youtu.be/pvsfpOBkHQ8" target="_blank"
-                ><span class="date">2018.11</span
-                ><span
-                  >ニューロナ×Sugamans Kama「Cry」MVが公開されました</span
-                ></a
-              >
-            </li>
-            <li>
-              <a href="https://youtu.be/oLfDbmo4umo" target="_blank"
-                ><span class="date">2018.10</span
-                ><span
-                  >instagramにて「instagram LIVE Vol.0」を放送しました</span
-                ></a
-              >
-            </li>
-            <li>
-              <span class="date">2018.07</span
-              ><span>3rd EP 「空蝉〜Utsusemi〜」をリリース</span>
-            </li>
-            <li>
-              <a href="http://fmsetouchi.amamin.jp" target="_blank"
-                ><span class="date">2018.06</span
-                ><span
-                  >エフエムせとうち「サトメグ放送局」で放送されました</span
-                ></a
-              >
-            </li>
-            <li>
-              <span class="date">2018.03</span
-              ><span>2nd EP 「ナガスギタ春」をリリース</span>
-            </li>
-            <li>
-              <span class="date">2017.12</span><span>ヴォーカルにTomo加入</span>
-            </li>
-            <li>
-              <span class="date">2017.12</span
-              ><span
-                >1st EP
-                「突き放すよ、これが愛だ君への愛だ」（初音ミク）をリリース</span
-              >
+              <div v-else>
+                <span class="date" v-text="item.date"></span
+                ><span v-text="item.title"></span>
+              </div>
             </li>
           </ul>
         </div>
@@ -164,12 +116,66 @@
           <ul>
             <li>
               <figure>
-                <img src="img/coming_soon.jpg" alt="2018年12月末リリース予定" />
-                <div class="comming-soon">2018年12月末<br />リリース予定</div>
+                <a href="https://youtu.be/Ii7sXmPmyiY" target="_blank">
+                  <img
+                    src="img/jacket-4th.jpg"
+                    alt="ニューロナ 4th EP - 玉虫色ライオット"
+                  />
+                  <div class="movie-btn"><i></i><span>MOVIE</span></div>
+                </a>
               </figure>
               <div class="content">
                 <div class="release-date">4th Album 2018-12</div>
-                <h3>（タイトル未定）</h3>
+								<h3>玉虫色ライオット</h3>
+								<!--
+                <div class="store-link">
+                  <a
+                    target="_blank"
+                    href="https://itunes.apple.com/jp/album/%E3%82%B5%E3%82%A4%E3%81%AE%E3%83%84%E3%83%8E%E3%81%AE%E3%82%88%E3%81%86%E3%81%AB-single/1441608849?app=itunes"
+                    ><img src="./img/banners/itunes.png" alt="iTunes"/></a
+                  ><a
+                    target="_blank"
+                    href="https://itunes.apple.com/jp/album/%E3%82%B5%E3%82%A4%E3%81%AE%E3%83%84%E3%83%8E%E3%81%AE%E3%82%88%E3%81%86%E3%81%AB-single/1441608849?app=music"
+                    ><img
+                      src="./img/banners/apple_music.png"
+                      alt="Apple Music"/></a
+                  ><a
+                    target="_blank"
+                    href="https://play.google.com/music/m/Bsl4jxqdpcqqh3vmtdrdjwuonuy"
+                    ><img
+                      src="./img/banners/google_play.png"
+                      alt="Google Play Music"/></a
+                  ><a
+                    target="_blank"
+                    href="https://mora.jp/package/43000074/TCJPR0000487750/"
+                    ><img src="./img/banners/moratouch.png" alt="Mora"/></a
+                  ><a
+                    target="_blank"
+                    href="http://recochoku.jp/song/S1007487237/"
+                    ><img
+                      src="./img/banners/recochoku_recochoku.png"
+                      alt="レコチョク"/></a
+                  ><a
+                    target="_blank"
+                    href="https://music.line.me/album/mb0000000001767737"
+                    ><img
+                      src="./img/banners/line_music.png"
+                      alt="LINE Music"/></a
+                  ><a
+                    target="_blank"
+                    href="https://www.amazon.co.jp/gp/product/B07K9PK2B5/ref=as_li_tf_tl?ie=UTF8&camp=247&creative=1211&creativeASIN=B07K9PK2B5&linkCode=as2&tag=tcjaz-22"
+                    ><img
+                      src="./img/banners/amazon_music.png"
+                      alt="Amazon Music"
+                  /></a>
+								</div>
+								-->
+                <div class="songs">
+                  <span>ハナビライフル</span>
+                  <span>夏空のドゥーワップ</span><span>Cry</span
+                  ><span>サイレンス</span><span>Wednesday Valentine</span
+                  ><span>サイのツノのように</span><span>きみがきみのために</span>
+                </div>
               </div>
             </li>
             <li>
@@ -413,7 +419,8 @@
             <insta-card
               v-for="instaitem in instadata"
               v-if="instaitem.type==='video'"
-              v-bind:my-data="instaitem"
+							v-bind:my-data="instaitem"
+							v-on:modal-open-event="showInstaModal"
             ></insta-card>
           </div>
         </div>
@@ -426,6 +433,22 @@
             allowfullscreen></iframe>
           -->
           <div class="music-video-inner">
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/qP2xakxBnbI?rel=0"
+              frameborder="0"
+              allow="autoplay; encrypted-media"
+              allowfullscreen
+            ></iframe>
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/aQmo5sbNcmw?rel=0"
+              frameborder="0"
+              allow="autoplay; encrypted-media"
+              allowfullscreen
+            ></iframe>
             <iframe
               width="560"
               height="315"
@@ -537,14 +560,48 @@
                 </div>
               </div>
             </li>
+            <li>
+              <div class="supporter-photo">
+                <img src="img/run.jpg" alt="Sugamans Kama" />
+              </div>
+              <div class="supporter-content">
+                <div class="supporter-title">化学物質過敏症研究家</div>
+                <div class="supporter-name">run</div>
+                <div class="supporter-profile">
+                  <p>
+										Tomoちゃんの夢を実現させたいと思い出来る協力は何でもします。<br>
+										私病気に対してのアドバイスなどをしていますがTomoちゃんは優秀な生徒と言えました、夢の実現が楽しみです＾＾</p>
+                  <div class="supporter-link">
+                    <a
+                      href="https://ameblo.jp/cs-es-by-run/?frm_id=v.mypage-ameblo--myblog--blog"
+                      target="_blank"
+                      >化学物質過敏症runのブログ</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </li>
           </ul>
         </div>
       </main>
       <div class="p-about-copyright">
         楽曲や歌詞は株式会社
         ツクロアが管理、イラストは一束が権利を所有しています。<br />配信されている楽曲やイラストの無断使用を禁じます。
-      </div>
-    </div>
+			</div>
+			<transition name="modal" mode="">
+				<div class="overlay" v-if="modalVideo.link">
+					<div class="overlay-bg" @click="modalClose"></div>
+					<div class="overlay-inner">
+							<i class="close-icon fal fa-times" @click="modalClose"></i>
+						<video id="modal-video" controls :src="modalVideo.videos.low_resolution.url" :poster="modalVideo.images.standard_resolution.url"></video>
+						<div class="data-contents">
+							<div class="insta-likes"><i class="fal fa-heart"></i><span>{{modalVideo.likes.count}}</span></div>
+							<a class="insta-link" :href="modalVideo.link" target="_blank"><i class="fab fa-instagram"></i></a>
+						</div>
+					</div>
+				</div>
+			</transition>
+		</div>
     <script src="./js/main.bundle.js"></script>
   </body>
 </html>

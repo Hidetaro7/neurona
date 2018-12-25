@@ -76,7 +76,7 @@
           date: ""
         },
         mounted() {
-          axios.get("./data.json").then(res => {
+          axios.get("../json/data.json").then(res => {
             this.news = res.data.reverse();
           });
         }

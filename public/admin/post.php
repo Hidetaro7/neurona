@@ -1,8 +1,9 @@
 <?php
+header('Content-Type: text/html; charset=UTF-8');
 	$title = $_POST["title"];
 	$link = $_POST["link"];
 	$date = $_POST["date"];
-	$json = file_get_contents("./data.json" );
+	$json = file_get_contents("../json/data.json" );
 	$json = mb_convert_encoding($json, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
 	$json = json_decode ($json, TRUE); // 文字列をArrayに変換
 	if(!$json) {
@@ -18,7 +19,7 @@
 	
 	$json = json_encode($json); // ArrayをJSON文字列に変換
 	//var_dump($json);
-	$success = file_put_contents("./data.json", $json); // ファイルに書き込み
+	$success = file_put_contents("../json/data.json", $json); // ファイルに書き込み
 
 	if($success) {
 		print("投稿しましたよ！");
