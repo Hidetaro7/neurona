@@ -1,190 +1,66 @@
-.c-btn {
-  padding: 10px 10px;
-  text-align: center;
-  display: inline-block;
-  font-size: 100%;
-  color: $color-accent;
-  text-decoration: none;
-  border: 1px solid rgba($color-accent, 0.5);
-
-  i {
-    margin-right: 10px;
-  }
-}
-
-.c-progress {
-  width: 85%;
-  height: 3px;
-  background-color: rgba(#999, 0.4);
-  @include sp-screen {
-    flex-grow: 1;
-    flex-basis: 60%;
-  }
-}
-
-.c-progress__bar {
-  width: 0%;
-  height: 100%;
-  background-color: rgba(rgb(20, 20, 20), 0.4);
-}
-
-.c-audio__volume {
-  //width: 70px;
+.music-player {
+  padding: 0 1rem 0.1rem;
   position: relative;
-  flex: 1 0 0;
-  @include fb(center, center);
-  margin-right: 10px;
-  @include sp-screen {
-    flex-grow: 1;
-    flex-basis: 40%;
+  z-index: 3;
+  display: flex;
+  align-items: flex-end;
+  .music-player-waver {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
   }
-}
-
-.c-audio__volume-bar {
-  width: 100%;
-  height: 3px;
-  border: 1px solid #999;
-  border-radius: 1px;
-}
-
-.c-audio {
-  @include fb(flex-start, center);
-  flex: 1 0 auto;
-  position: relative;
-  @include sp-screen {
-    @include fb(space-between, center);
+  .music-player-inner {
+    display: flex;
+    color: #444;
+    line-height: 1.1;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    margin-left: 1rem;
   }
-}
-
-.c-audio__volume-hundle {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  border: 1px solid #999;
-  background-color: #fff;
-  position: absolute;
-  top: -4px;
-  cursor: pointer;
-}
-
-.c-audio__volume__range {
-  width: calc(100% - 10px);
-  vertical-align: middle;
-}
-
-.c-audio__mute {
-  text-align: center;
-  background-color: rgba(#fff, 0.8);
-  border-radius: 6px;
-  padding: 10px 0;
-  width: 260px;
-  border: 1px solid #ccc;
-  cursor: pointer;
-  @include sp-screen {
-    display: none;
+  .song-info {
+    display: flex;
+    align-items: center;
   }
-
-  &:hover {
-    background-color: rgba(#fff, 0.9);
+  .song-title {
+    margin-right: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 700;
   }
-
-  .c-audio__mute-icon {
-    font-size: 60px;
-    line-height: 1;
-    @include sp-screen {
-      font-size: 40px;
+  .song-album {
+    font-size: 0.6rem;
+  }
+  .play-btn {
+    padding: 0.5rem;
+    .btn-pause {
+      display: none;
     }
-  }
-
-  .ion-ios-volume-low {
-    display: none;
-
-    &::before {
-    }
-  }
-
-  .ion-ios-volume-high {
-    display: block;
-  }
-
-  &.is-muting {
-    .c-audio__mute-icon {
-      color: #f00;
-      position: relative;
-
-      &::after {
-        content: "";
-        width: 40px;
-        height: 2px;
-        background-color: #f00;
+    &.is-play {
+      .btn-pause {
         display: block;
-        transform: rotate(-45deg);
-        position: absolute;
-        top: calc(50% - 1px);
-        left: calc(50% - 17px);
+      }
+      .btn-play {
+        display: none;
       }
     }
   }
-}
-
-.c-audio__mute-label {
-  @include sp-screen {
-    font-size: 70%;
-  }
-}
-
-.is-muting {
-  .ion-ios-volume-low {
-    display: block;
-  }
-
-  .ion-ios-volume-high {
-    display: none;
-  }
-}
-
-/* .c-tooltip-playsound {
-  display: none;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  background-color: #222;
-  color: white;
-  border-radius: 40px;
-  padding: .7rem .5rem;
-  width: 150px;
-  font-family: 'Roboto Condensed', sans-serif;
-  text-align: center;
-  font-size: 90%;
-  line-height: 1;
-  z-index: 10;
-
-  &::after {
-    content: "";
-    width: 10px;
-    height: 10px;
-    background-color: #222;
-    transform: rotate(45deg);
-    position: absolute;
-    bottom: -5px;
-    left: calc(50% - 5px);
-    display: block;
-  }
-
-  .is-muted & {
-    display: block;
-  }
-} */
-
-@keyframes popup {
-}
-
-.c-sp-audio {
-  display: none;
-  @include sp-screen {
-    display: block;
-    width: 90%;
+  .play-volume {
+    padding: 0.5rem;
     position: relative;
-    left: 5%;
+    .btn-mute-off {
+      display: none;
+    }
+    .tooltip {
+      left: -1.5rem;
+    }
+    &.is-mute {
+      .btn-mute-off {
+        display: block;
+      }
+      .btn-mute-on {
+        display: none;
+      }
+    }
   }
 }

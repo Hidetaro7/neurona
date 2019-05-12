@@ -1,607 +1,66 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-    />
-    <meta
-      name="description"
-      content="誰にでも耳に残るメロディーやフレーズがとてもキャッチー。音楽集団「ニューロナ」のオフィシャルサイトです。4作名にして初のシングル曲「サイのツノのように」全力配信中です！"
-    />
-    <meta property="og:title" content="ニューロナ オフィシャルサイト" />
-    <meta property="og:type" content="website" />
-    <meta
-      property="og:image"
-      content="https://tuqulore.com/neurona/img/ogp_1st-single.jpg"
-    />
-    <meta property="og:url" content="https://tuqulore.com/neurona/" />
-    <meta property="og:site_name" content="ニューロナ オフィシャルサイト" />
-    <meta
-      property="og:description"
-      content="誰にでも耳に残るメロディーやフレーズがとてもキャッチー。音楽集団「ニューロナ」"
-    />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="誰にでも耳に残るメロディーやフレーズがとてもキャッチー。音楽集団「ニューロナ」">
+    <meta property="og:title" content="ニューロナ オフィシャルサイト">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://tuqulore.com/neurona/img/jacket-3rd.jpg">
+    <meta property="og:url" content="https://tuqulore.com/neurona/">
+    <meta property="og:site_name" content="ニューロナ オフィシャルサイト">
+    <meta property="og:description" content="誰にでも耳に残るメロディーやフレーズがとてもキャッチー。音楽集団「ニューロナ」">
     <title>ニューロナ オフィシャルサイト</title>
-    <link
-      rel="stylesheet"
-      href="https://pro.fontawesome.com/releases/v5.5.0/css/all.css"
-      integrity="sha384-j8y0ITrvFafF4EkV1mPW0BKm6dp3c+J9Fky22Man50Ofxo2wNe5pT1oZejDH9/Dt"
-      crossorigin="anonymous"
-    />
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" />
-    <link rel="stylesheet" href="./css/style.css?20180714" />
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/css/swiper.min.css" rel="stylesheet">
+    <!-- Include the Swiper library-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/js/swiper.min.js"></script>
+    <!-- Swiper JS Vue-->
+    <script src="https://cdn.jsdelivr.net/npm/vue-awesome-swiper@3.1.2/dist/vue-awesome-swiper.js"></script>
+    <link rel="stylesheet" href="./css/style.css?20180714">
   </head>
-
   <body>
     <div id="app">
-      <header class="p-main-header">
-        <div class="p-main-header-inner">
-          <div class="p-header-title">
-            <h1 class="p-logo">
-              <img
-                src="./img/logo_white.svg"
-                alt="ニューロナ オフィシャルサイト"
-              />
-            </h1>
+      <main class="content-wrapper" :class="{'is-show-drawer': showDrawer}">
+        <div class="visual">
+          <music-player></music-player>
+        </div>
+        <div class="main-content">
+          <div class="artist-title">
+            <h1 class="main-title"><img src="./img/main_ttl.png" alt="ニューロナ"></h1>
+            <h2 class="sub-title"><span>neurona | 神经元我的幸福</span></h2>
           </div>
-          <div class="p-gnav">
-            <ul>
-              <li><a href="#id-news">NEWS</a></li>
-              <li><a href="#id-disco">DISCO</a></li>
-              <li><a href="#id-video">VIDEO</a></li>
-              <li><a href="#id-song">SONGS</a></li>
-              <li><a href="#id-wanted">WANTED</a></li>
-              <li><a href="#id-thanks">THANKS</a></li>
-            </ul>
-          </div>
-          <div class="p-contact">
-            <a
-              class="iconbtn icon-youtube"
-              href="https://www.youtube.com/channel/UCRKVZiebYGhWRCDxY3OA8cg"
-              target="_blank"
-              ><i class="fab fa-youtube"></i> <span>Youtube</span>
-            </a>
-            <a
-              class="iconbtn icon-instagram"
-              href="https://www.instagram.com/0_9_0_9_tomo/"
-              target="_blank"
-              ><i class="fab fa-instagram"></i> <span>Instagram</span></a
-            >
-            <a class="iconbtn icon-mail" href="mailto:company@tuqulore.com">
-              <i class="fal fa-envelope"></i> <span>お問い合わせ</span>
-            </a>
+          <div class="release">
+            <div class="related-area">
+              <swiper ref="awesomeSwiperA" :options="swiperOptionA" @set-translate="onSetTranslate">
+                <!-- slides-->
+                <swiper-slide v-for="item in releaseData.releases">
+                  <release-card :item-data="item"></release-card>
+                </swiper-slide>
+                <!-- Optional controls-->
+                <div class="swiper-button-prev" slot="button-prev"></div>
+                <div class="swiper-button-next" slot="button-next"></div>
+              </swiper>
+            </div>
           </div>
         </div>
-      </header>
-      <div class="hero-image">
-        <iframe
-          class="hero-video"
-          width="1024"
-          height="576"
-          src="https://www.youtube.com/embed/Ii7sXmPmyiY?enablejsapi=1&rel=0"
-          frameborder="0"
-          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
-        <div class="video-cover" v-if="!isVideoPlay"></div>
-        <div class="play-btn" v-if="!isVideoPlay" v-on:click="changeVideoMode">
-          <i class="fas fa-play"></i>
-        </div>
-      </div>
-      <main class="main-content">
-        <div class="media" id="id-news">
-          <h2 class="section-title">NEWS</h2>
-          <div class="tac desc">ニューロナの最新の活動情報です</div>
-          <ul>
-            <li v-for="item in news" v-if="!item.hide">
-              <a v-if="item.link!==''" v-bind:href="item.link" target="_blank"
-                ><span class="date" v-text="item.date"></span
-                ><span v-text="item.title"
-                  >「サイのツノのように」をリリース</span
-                ></a
-              >
-              <div v-else>
-                <span class="date" v-text="item.date"></span
-                ><span v-text="item.title"></span>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div class="discography-top" id="id-disco">
-          <h2 class="section-title">DISCOGRAPHY</h2>
-          <div class="tac desc">ニューロナの音源です</div>
-          <ul>
-            <li>
-              <figure>
-                <a href="https://youtu.be/Ii7sXmPmyiY" target="_blank">
-                  <img
-                    src="img/jacket-4th.jpg"
-                    alt="ニューロナ 4th EP - 玉虫色ライオット"
-                  />
-                  <div class="movie-btn"><i></i><span>MOVIE</span></div>
-                </a>
-              </figure>
-              <div class="content">
-                <div class="release-date">4th Album 2018-12</div>
-								<h3>玉虫色ライオット</h3>
-								
-                <div class="store-link">
-                  <a
-                    target="_blank"
-                    href="https://www.tunecore.co.jp/to/itunes/498607"
-                    ><img src="./img/banners/itunes.png" alt="iTunes"/></a
-                  ><a
-                    target="_blank"
-                    href="https://www.tunecore.co.jp/to/apple_music/498607"
-                    ><img
-                      src="./img/banners/apple_music.png"
-                      alt="Apple Music"/></a
-                  ><a
-                    target="_blank"
-                    href="https://play.google.com/store/search?q=%E3%83%8B%E3%83%A5%E3%83%BC%E3%83%AD%E3%83%8A%20%E7%8E%89%E8%99%AB%E8%89%B2%E3%83%A9%E3%82%A4%E3%82%AA%E3%83%83%E3%83%88&c=music"
-                    ><img
-                      src="./img/banners/google_play.png"
-                      alt="Google Play Music"/></a
-                  ><a
-                    target="_blank"
-                    href="https://music.youtube.com/search?q=%E3%83%8B%E3%83%A5%E3%83%BC%E3%83%AD%E3%83%8A%20%E7%8E%89%E8%99%AB%E8%89%B2%E3%83%A9%E3%82%A4%E3%82%AA%E3%83%83%E3%83%88"
-                    ><img src="./img/banners/youtube.gif" alt="Youtube Music"/></a
-                  ><a
-                    target="_blank"
-                    href="https://www.tunecore.co.jp/to/recochoku441/498607"
-                    ><img
-                      src="./img/banners/recochoku_recochoku.png"
-                      alt="レコチョク"/></a
-                  ><!-- <a
-                    target="_blank"
-                    href="https://music.line.me/search/%E3%83%8B%E3%83%A5%E3%83%BC%E3%83%AD%E3%83%8A%20%E7%8E%89%E8%99%AB%E8%89%B2%E3%83%A9%E3%82%A4%E3%82%AA%E3%83%83%E3%83%88"
-                    ><img
-                      src="./img/banners/line_music.png"
-                      alt="LINE Music"/></a
-                  > --><a
-                    target="_blank"
-                    href="https://www.amazon.co.jp/s/ref=nb_sb_noss?url=search-alias%3Ddigital-music&field-keywords=%E3%83%8B%E3%83%A5%E3%83%BC%E3%83%AD%E3%83%8A%20%E7%8E%89%E8%99%AB%E8%89%B2%E3%83%A9%E3%82%A4%E3%82%AA%E3%83%83%E3%83%88"
-                    ><img
-                      src="./img/banners/amazon_music.png"
-                      alt="Amazon Music"
-                  /></a>
-								</div>
-								
-                <div class="songs">
-                  <span>ハナビライフル</span>
-                  <span>夏空のドゥーワップ</span><span>Cry</span
-                  ><span>サイレンス</span><span>Wednesday Valentine</span
-                  ><span>サイのツノのように</span><span>きみがきみのために</span>
-                </div>
-              </div>
-            </li>
-            <li>
-              <figure>
-                <a href="https://youtu.be/l_LJgFMkEk8" target="_blank">
-                  <img
-                    src="img/jacket_1st-single.jpg"
-                    alt="ニューロナ 1stシングル - サイのツノのように"
-                  />
-                  <div class="movie-btn"><i></i><span>MOVIE</span></div>
-                </a>
-              </figure>
-              <div class="content">
-                <div class="release-date">1st Single 2018-11</div>
-                <h3>サイのツノのように</h3>
-                <div class="store-link">
-                  <a
-                    target="_blank"
-                    href="https://itunes.apple.com/jp/album/%E3%82%B5%E3%82%A4%E3%81%AE%E3%83%84%E3%83%8E%E3%81%AE%E3%82%88%E3%81%86%E3%81%AB-single/1441608849?app=itunes"
-                    ><img src="./img/banners/itunes.png" alt="iTunes"/></a
-                  ><a
-                    target="_blank"
-                    href="https://itunes.apple.com/jp/album/%E3%82%B5%E3%82%A4%E3%81%AE%E3%83%84%E3%83%8E%E3%81%AE%E3%82%88%E3%81%86%E3%81%AB-single/1441608849?app=music"
-                    ><img
-                      src="./img/banners/apple_music.png"
-                      alt="Apple Music"/></a
-                  ><a
-                    target="_blank"
-                    href="https://play.google.com/music/m/Bsl4jxqdpcqqh3vmtdrdjwuonuy"
-                    ><img
-                      src="./img/banners/google_play.png"
-                      alt="Google Play Music"/></a
-                  ><a
-                    target="_blank"
-                    href="https://mora.jp/package/43000074/TCJPR0000487750/"
-                    ><img src="./img/banners/moratouch.png" alt="Mora"/></a
-                  ><a
-                    target="_blank"
-                    href="http://recochoku.jp/song/S1007487237/"
-                    ><img
-                      src="./img/banners/recochoku_recochoku.png"
-                      alt="レコチョク"/></a
-                  ><a
-                    target="_blank"
-                    href="https://music.line.me/album/mb0000000001767737"
-                    ><img
-                      src="./img/banners/line_music.png"
-                      alt="LINE Music"/></a
-                  ><a
-                    target="_blank"
-                    href="https://www.amazon.co.jp/gp/product/B07K9PK2B5/ref=as_li_tf_tl?ie=UTF8&camp=247&creative=1211&creativeASIN=B07K9PK2B5&linkCode=as2&tag=tcjaz-22"
-                    ><img
-                      src="./img/banners/amazon_music.png"
-                      alt="Amazon Music"
-                  /></a>
-                </div>
-              </div>
-            </li>
-            <li>
-              <figure>
-                <a href="https://youtu.be/HZiYA8AMBu8" target="_blank"
-                  ><img
-                    src="img/jacket-3rd.jpg"
-                    alt="ニューロナ 3rd EP - 空蝉〜Utsusemi〜"
-                  />
-                  <div class="movie-btn"><i></i><span>MOVIE</span></div>
-                </a>
-              </figure>
-              <div class="content">
-                <div class="release-date">3rd Album 2018-7</div>
-                <h3>空蝉〜Utsusemi〜</h3>
-                <div class="store-link">
-                  <a
-                    href="https://itunes.apple.com/jp/album/id1409504770?app=itunes"
-                    ><img src="./img/banners/itunes.png" alt="iTunes"/></a
-                  ><a
-                    href="https://itunes.apple.com/jp/album/id1409504770?app=music"
-                    ><img
-                      src="./img/banners/apple_music.png"
-                      alt="Apple Music"/></a
-                  ><a href="https://goo.gl/Wypkx9"
-                    ><img
-                      src="./img/banners/google_play.png"
-                      alt="Google Play Music"/></a
-                  ><a href="http://mora.jp/package/43000074/TCJPR0000449636/"
-                    ><img src="./img/banners/moratouch.png" alt="Mora"/></a
-                  ><a href="http://recochoku.jp/album/A2001299124/"
-                    ><img
-                      src="./img/banners/recochoku_recochoku.png"
-                      alt="レコチョク"/></a
-                  ><a href="https://music.line.me/artist/mi000000000e6fd2f8"
-                    ><img
-                      src="./img/banners/line_music.png"
-                      alt="LINE Music"/></a
-                  ><a href="https://goo.gl/G7HJ4W"
-                    ><img
-                      src="./img/banners/amazon_music.png"
-                      alt="Amazon Music"
-                  /></a>
-                </div>
-                <div class="songs">
-                  <span>BOMB!</span><span>Naturally（2018）</span
-                  ><span>So Sweet</span><span>四足のヒーロー（2018）</span
-                  ><span>水蜜桃</span><span>Hello Halo（未完成）</span>
-                </div>
-                <div class="demo-movie">
-                  <iframe
-                    width="300"
-                    height="168"
-                    src="https://www.youtube.com/embed/HZiYA8AMBu8?rel=0"
-                    frameborder="0"
-                    allow="autoplay; encrypted-media"
-                    allowfullscreen
-                  ></iframe>
-                </div>
-              </div>
-            </li>
-            <li>
-              <figure>
-                <a href="https://youtu.be/HNkytb31Dnw" target="_blank"
-                  ><img
-                    src="img/jacket-2nd.jpg"
-                    alt="ニューロナ 2nd EP - ナガスギタ春"
-                  />
-                  <div class="movie-btn"><i></i><span>MOVIE</span></div>
-                </a>
-              </figure>
-              <div class="content">
-                <div class="release-date">2nd Album 2018-3</div>
-                <h3>ナガスギタ春</h3>
-                <div class="store-link">
-                  <a
-                    href="https://itunes.apple.com/jp/album/id1364829120?app=itunes"
-                    ><img src="./img/banners/itunes.png" alt="iTunes"/></a
-                  ><a
-                    href="https://itunes.apple.com/jp/album/id1364829120?app=music"
-                    ><img
-                      src="./img/banners/apple_music.png"
-                      alt="Apple Music"/></a
-                  ><a href="https://goo.gl/S8NasV"
-                    ><img
-                      src="./img/banners/google_play.png"
-                      alt="Google Play Music"/></a
-                  ><a href="http://mora.jp/package/43000074/TCJPR0000426718/"
-                    ><img src="./img/banners/moratouch.png" alt="Mora"/></a
-                  ><a href="http://recochoku.jp/album/A1009815669/"
-                    ><img
-                      src="./img/banners/recochoku_recochoku.png"
-                      alt="レコチョク"/></a
-                  ><a href="https://music.line.me/album/mb000000000160776d"
-                    ><img
-                      src="./img/banners/line_music.png"
-                      alt="LINE Music"/></a
-                  ><a href="https://goo.gl/4EentD"
-                    ><img
-                      src="./img/banners/amazon_music.png"
-                      alt="Amazon Music"
-                  /></a>
-                </div>
-                <div class="songs">
-                  <span>Promise</span><span>Strange Days</span><span>DROPS</span
-                  ><span>FRIEND</span><span>幾千一夜</span><span>チケット</span>
-                </div>
-                <div class="demo-movie">
-                  <iframe
-                    width="300"
-                    height="168"
-                    src="https://www.youtube.com/embed/HNkytb31Dnw?rel=0"
-                    frameborder="0"
-                    allow="autoplay; encrypted-media"
-                    allowfullscreen
-                  ></iframe>
-                </div>
-              </div>
-            </li>
-            <li>
-              <figure>
-                <a href="https://youtu.be/S9zcx7o3ASo" target="_blank"
-                  ><img
-                    src="img/jacket-1st.jpg"
-                    alt="ニューロナ 1st EP - 突き放すよ、これが愛だ君への愛だ"
-                  />
-                  <div class="movie-btn"><i></i><span>MOVIE</span></div>
-                </a>
-              </figure>
-              <div class="content">
-                <div class="release-date">First Album 2017-12</div>
-                <h3>突き放すよ、これが愛だ君への愛だ</h3>
-                <div class="store-link">
-                  <a
-                    href="https://itunes.apple.com/jp/album/id1326712327?app=itunes"
-                    ><img src="./img/banners/itunes.png" alt="iTunes"/></a
-                  ><a
-                    href="https://itunes.apple.com/jp/album/id1326712327?app=music"
-                    ><img
-                      src="./img/banners/apple_music.png"
-                      alt="Apple Music"/></a
-                  ><a href="https://goo.gl/Dxunyx"
-                    ><img
-                      src="./img/banners/google_play.png"
-                      alt="Google Play Music"/></a
-                  ><a href="http://mora.jp/package/43000074/TCJPR0000411265/"
-                    ><img src="./img/banners/moratouch.png" alt="Mora"/></a
-                  ><a href="http://recochoku.jp/album/A2001139179/"
-                    ><img
-                      src="./img/banners/recochoku_recochoku.png"
-                      alt="レコチョク"/></a
-                  ><a href="https://music.line.me/album/mb00000000015982e6"
-                    ><img
-                      src="./img/banners/line_music.png"
-                      alt="LINE Music"/></a
-                  ><a href="https://goo.gl/jxny1M"
-                    ><img
-                      src="./img/banners/amazon_music.png"
-                      alt="Amazon Music"
-                  /></a>
-                </div>
-                <div class="songs">
-                  <span>四足のヒーロー</span><span>Naturally</span
-                  ><span>ラバソニッ！</span><span>サイレンス</span
-                  ><span>1000年のタイマー</span>
-                </div>
-                <div class="demo-movie">
-                  <iframe
-                    width="300"
-                    height="168"
-                    src="https://www.youtube.com/embed/HZiYA8AMBu8?rel=0"
-                    frameborder="0"
-                    allow="autoplay; encrypted-media"
-                    allowfullscreen
-                  ></iframe>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div class="instagram" id="id-song">
-          <h2 class="section-title">SONGS IN INSTAGRAM</h2>
-          <p class="tac desc">ボーカルTomoがInstagramで歌っている動画です</p>
-          <div class="instagram-container">
-            <insta-card
-              v-for="instaitem in instadata"
-              v-if="instaitem.type==='video'"
-							v-bind:my-data="instaitem"
-							v-on:modal-open-event="showInstaModal"
-            ></insta-card>
+        <div class="main-header">
+          <div class="main-header-inner">
+            <div class="p-gnav">
+              <ul>
+                <li><a href="#" title="About us（自我介绍）">About us</a></li>
+                <li><a href="#" title="Release（工作）">Release</a></li>
+                <li><a href="#" title="Blog（一个博客）">Blog</a></li>
+                <li><a href="mailto:company@tuqulore.com" title="Contact（查询）">Contact</a></li>
+              </ul>
+            </div>
+            <div class="sns"><a class="iconbtn" href="https://www.youtube.com/channel/UCRKVZiebYGhWRCDxY3OA8cg" target="_blank"><i class="fab fa-youtube"></i></a><a class="iconbtn" href="https://www.instagram.com/0_9_0_9_tomo/" target="_blank"><i class="fab fa-instagram"></i></a><a class="iconbtn" href="https://twitter.com/neurona_jp" target="_blank"><i class="fab fa-twitter"></i></a></div>
           </div>
-        </div>
-        <div class="music-video" id="id-video">
-          <h2 class="section-title">VIDEO</h2>
-
-          <p class="tac desc">ニューロナのミュージックビデオです</p>
-          <!--
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/l_LJgFMkEk8?rel=0" frameborder="0" allow="autoplay; encrypted-media"
-            allowfullscreen></iframe>
-          -->
-          <div class="music-video-inner">
-            <iframe
-              width="560"
-              height="315"
-              src="https://www.youtube.com/embed/qP2xakxBnbI?rel=0"
-              frameborder="0"
-              allow="autoplay; encrypted-media"
-              allowfullscreen
-            ></iframe>
-            <iframe
-              width="560"
-              height="315"
-              src="https://www.youtube.com/embed/aQmo5sbNcmw?rel=0"
-              frameborder="0"
-              allow="autoplay; encrypted-media"
-              allowfullscreen
-            ></iframe>
-            <iframe
-              width="560"
-              height="315"
-              src="https://www.youtube.com/embed/pvsfpOBkHQ8?rel=0"
-              frameborder="0"
-              allow="autoplay; encrypted-media"
-              allowfullscreen
-            ></iframe>
-            <iframe
-              width="560"
-              height="315"
-              src="https://www.youtube.com/embed/UrRnAtp_6l8?rel=0"
-              frameborder="0"
-              allow="autoplay; encrypted-media"
-              allowfullscreen
-            ></iframe>
-          </div>
-        </div>
-
-        <div class="member" id="id-wanted">
-          <h2 class="section-title">WANTED</h2>
-          <p>
-            ニューロナでは今後も音楽を作り続けるために、以下のようなメンバーを募集しています。
-          </p>
-          <ul>
-            <li>
-              楽器全般（ニューロナの楽曲に自分の弾ける楽器の音を足したいと思った方、楽器の種類や音楽ジャンルは問いません）
-            </li>
-            <li>
-              映像やアニメーションを作れる方（今、私達素人ながら手作り中です。助けてください。）
-            </li>
-            <li>
-              ミックス・マスタリングエンジニア（こちらも私達でやっています、、）
-            </li>
-            <li>その他、表現者である方どなたでも。</li>
-          </ul>
-          <p>
-            関わってくださる方に制限は特に設けていません。居住地、国籍、性別、年齢は一切不問です。
-          </p>
-          <p class="tac">
-            <a class="c-btn" href="mailto:company@tuqulore.com"
-              ><i class="fal fa-envelope"></i>メンバー加入についてメールする</a
-            >
-          </p>
-        </div>
-        <div class="supporters" id="id-thanks">
-          <h2 class="section-title">THANKS</h2>
-          <p class="tac desc">お世話になっている方々</p>
-          <ul>
-            <li>
-              <div class="supporter-photo">
-                <img src="img/satomegu.jpg" alt="サトメグ" />
-              </div>
-              <div class="supporter-content">
-                <div class="supporter-title">RADIO PERSONALITY</div>
-                <div class="supporter-name">里 恵</div>
-                <div class="supporter-profile">
-                  <p>
-                    地元ラジオ“エフエムせとうち”にて「サトメグ放送局」の番組を持ち現在引き続き、パーソナリティを務める。
-                  </p>
-                  <div class="supporter-link">
-                    <a
-                      href="http://satomeguwebsite.wixsite.com/home/satomegumi"
-                      target="_blank"
-                      >サトメグ さんの公式サイト</a
-                    >
-                  </div>
-                  <div class="supporter-link">
-                    <a href="http://fmsetouchi.amamin.jp" target="_blank"
-                      >エフエムせとうち</a
-                    >
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="supporter-photo">
-                <img src="img/ituka.jpg" alt="一束" />
-              </div>
-              <div class="supporter-content">
-                <div class="supporter-title">ILLUSTRATOR</div>
-                <div class="supporter-name">一束</div>
-                <div class="supporter-profile">
-                  <p>
-                    関西出身のフリーイラストレーター。<br />「やわらかく愛らしく」をモットーに、ノスタルジックで、動物や少女をモチーフにした作品を中心に描いています。また、どことなく「和」を感じる要素を取り入れるよう心がけています。
-                  </p>
-                  <div class="supporter-link">
-                    <a href="http://1-tuka.com/" target="_blank">よひらさか</a>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="supporter-photo">
-                <img src="img/kama.jpg" alt="Sugamans Kama" />
-              </div>
-              <div class="supporter-content">
-                <div class="supporter-title">「魂の音楽家」</div>
-                <div class="supporter-name">Sugamans Kama</div>
-                <div class="supporter-profile">
-                  <p>心、揺さぶる!サウンドが僕の全てです。</p>
-                  <div class="supporter-link">
-                    <a
-                      href="https://www.instagram.com/sugamans5880"
-                      target="_blank"
-                      >sugamans5880</a
-                    >
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="supporter-photo">
-                <img src="img/run.jpg" alt="Sugamans Kama" />
-              </div>
-              <div class="supporter-content">
-                <div class="supporter-title">化学物質過敏症研究家</div>
-                <div class="supporter-name">run</div>
-                <div class="supporter-profile">
-                  <p>
-										Tomoちゃんの夢を実現させたいと思い出来る協力は何でもします。<br>
-										私病気に対してのアドバイスなどをしていますがTomoちゃんは優秀な生徒と言えました、夢の実現が楽しみです＾＾</p>
-                  <div class="supporter-link">
-                    <a
-                      href="https://ameblo.jp/cs-es-by-run/?frm_id=v.mypage-ameblo--myblog--blog"
-                      target="_blank"
-                      >化学物質過敏症runのブログ</a
-                    >
-                  </div>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
+        </div><a class="menu-trigger" href="#" @click="showDrawer=!showDrawer" :class="{active: showDrawer}"><span></span><span></span><span></span></a>
       </main>
-      <div class="p-about-copyright">
-        楽曲や歌詞は株式会社
-        ツクロアが管理、イラストは一束が権利を所有しています。<br />配信されている楽曲やイラストの無断使用を禁じます。
-			</div>
-			<transition name="modal" mode="">
-				<div class="overlay" v-if="modalVideo.link">
-					<div class="overlay-bg" @click="modalClose"></div>
-					<div class="overlay-inner">
-							<i class="close-icon fal fa-times" @click="modalClose"></i>
-						<video id="modal-video" controls :src="modalVideo.videos.low_resolution.url" :poster="modalVideo.images.standard_resolution.url"></video>
-						<div class="data-contents">
-							<div class="insta-likes"><i class="fal fa-heart"></i><span>{{modalVideo.likes.count}}</span></div>
-							<a class="insta-link" :href="modalVideo.link" target="_blank"><i class="fab fa-instagram"></i></a>
-						</div>
-					</div>
-				</div>
-			</transition>
-		</div>
-    <script src="./js/main.bundle.js"></script>
+    </div>
+    <script type="module" src="./js/main.js"></script>
   </body>
 </html>

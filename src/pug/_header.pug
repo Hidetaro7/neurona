@@ -1,28 +1,15 @@
-header.p-main-header
-	.p-main-header-inner
-		.p-header-title
-			h1.p-logo
-				img(src="./img/logo_neurona_dark.png", alt="ニューロナ オフィシャルサイト")
-			
+.main-header
+	.main-header-inner
 		.p-gnav
 			ul
 				li
-					a(href="#") NEWS
+					a(href="#" title="About us（自我介绍）") About us
 				li
-					a(href="#") DISCO
+					a(href="#" title="Release（工作）") Release
 				li
-					a(href="#") VIDEO
+					a(href="#" title="Blog（一个博客）") Blog
 				li
-					a(href="#") SONGS
-				li
-					a(href="#") WANTED
-				li
-					a(href="#") THANKS
+					a(href="mailto:company@tuqulore.com" title="Contact（查询）") Contact
 
-		.p-contact
-			a.iconbtn(href="https://www.youtube.com/channel/UCRKVZiebYGhWRCDxY3OA8cg" target="_blank")
-				i.fab.fa-youtube
-			a.iconbtn(href="https://www.instagram.com/0_9_0_9_tomo/" target="_blank")
-				i.fab.fa-instagram
-
-			a.c-btn(href="mailto:company@tuqulore.com") お問い合わせ
+		.sns
+			include ./_sns_btn
