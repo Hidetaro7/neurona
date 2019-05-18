@@ -1,25 +1,48 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="description" content="誰にでも耳に残るメロディーやフレーズがとてもキャッチー。音楽集団「ニューロナ」">
-    <meta property="og:title" content="ニューロナ オフィシャルサイト">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://tuqulore.com/neurona/img/jacket-3rd.jpg">
-    <meta property="og:url" content="https://tuqulore.com/neurona/">
-    <meta property="og:site_name" content="ニューロナ オフィシャルサイト">
-    <meta property="og:description" content="誰にでも耳に残るメロディーやフレーズがとてもキャッチー。音楽集団「ニューロナ」">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta
+      name="description"
+      content="誰にでも耳に残るメロディーやフレーズがとてもキャッチー。音楽集団「ニューロナ」"
+    />
+    <meta property="og:title" content="ニューロナ オフィシャルサイト" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://tuqulore.com/neurona/img/jacket-3rd.jpg"
+    />
+    <meta property="og:url" content="https://tuqulore.com/neurona/" />
+    <meta property="og:site_name" content="ニューロナ オフィシャルサイト" />
+    <meta
+      property="og:description"
+      content="誰にでも耳に残るメロディーやフレーズがとてもキャッチー。音楽集団「ニューロナ」"
+    />
     <title>ニューロナ オフィシャルサイト</title>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+      integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat"
+      rel="stylesheet"
+    />
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/css/swiper.min.css" rel="stylesheet">
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/css/swiper.min.css"
+      rel="stylesheet"
+    />
     <!-- Include the Swiper library-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/js/swiper.min.js"></script>
     <!-- Swiper JS Vue-->
     <script src="https://cdn.jsdelivr.net/npm/vue-awesome-swiper@3.1.2/dist/vue-awesome-swiper.js"></script>
-    <link rel="stylesheet" href="./css/style.css?20180714">
+    <link rel="stylesheet" href="./css/style.css?20180714" />
   </head>
   <body>
     <div id="app">
@@ -29,12 +52,18 @@
         </div>
         <div class="main-content">
           <div class="artist-title">
-            <h1 class="main-title"><img src="./img/main_ttl.png" alt="ニューロナ"></h1>
+            <h1 class="main-title">
+              <img src="./img/main_ttl.png" alt="ニューロナ" />
+            </h1>
             <h2 class="sub-title"><span>neurona | 神经元我的幸福</span></h2>
           </div>
           <div class="release">
             <div class="related-area">
-              <swiper ref="awesomeSwiperA" :options="swiperOptionA" @set-translate="onSetTranslate">
+              <swiper
+                ref="awesomeSwiperA"
+                :options="swiperOptionA"
+                @set-translate="onSetTranslate"
+              >
                 <!-- slides-->
                 <swiper-slide v-for="item in releaseData.releases">
                   <release-card :item-data="item"></release-card>
@@ -52,13 +81,41 @@
               <ul>
                 <li><a href="#" title="About us（自我介绍）">About us</a></li>
                 <li><a href="#" title="Release（工作）">Release</a></li>
-                <li><a href="#" title="Blog（一个博客）">Blog</a></li>
-                <li><a href="mailto:company@tuqulore.com" title="Contact（查询）">Contact</a></li>
+                <li><a href="./blog.php" title="Blog（一个博客）">Blog</a></li>
+                <li>
+                  <a href="mailto:company@tuqulore.com" title="Contact（查询）"
+                    >Contact</a
+                  >
+                </li>
               </ul>
             </div>
-            <div class="sns"><a class="iconbtn" href="https://www.youtube.com/channel/UCRKVZiebYGhWRCDxY3OA8cg" target="_blank"><i class="fab fa-youtube"></i></a><a class="iconbtn" href="https://www.instagram.com/0_9_0_9_tomo/" target="_blank"><i class="fab fa-instagram"></i></a><a class="iconbtn" href="https://twitter.com/neurona_jp" target="_blank"><i class="fab fa-twitter"></i></a></div>
+            <div class="sns">
+              <a
+                class="iconbtn"
+                href="https://www.youtube.com/channel/UCRKVZiebYGhWRCDxY3OA8cg"
+                target="_blank"
+                ><i class="fab fa-youtube"></i></a
+              ><a
+                class="iconbtn"
+                href="https://www.instagram.com/0_9_0_9_tomo/"
+                target="_blank"
+                ><i class="fab fa-instagram"></i></a
+              ><a
+                class="iconbtn"
+                href="https://twitter.com/neurona_jp"
+                target="_blank"
+                ><i class="fab fa-twitter"></i
+              ></a>
+            </div>
           </div>
-        </div><a class="menu-trigger" href="#" @click="showDrawer=!showDrawer" :class="{active: showDrawer}"><span></span><span></span><span></span></a>
+        </div>
+        <a
+          class="menu-trigger"
+          href="#"
+          @click="showDrawer=!showDrawer"
+          :class="{active: showDrawer}"
+          ><span></span><span></span><span></span
+        ></a>
       </main>
     </div>
     <script type="module" src="./js/main.js"></script>

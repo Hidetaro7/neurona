@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, user-scalable=0" name="viewport" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>play</button>
+    <canvas id="canvas"></canvas>
+    <script>
+      let analyser;
+      let frequencyData;
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      const ctx = new AudioContext();
+      let gainNode = ctx.createGain();
+      const canvas = document.querySelector("#canvas");
+      const canvas_ctx = canvas.getContext("2d");
+      const play = document.querySelector("button");
+      canvas.height = 100;
+      canvas.width = window.innerWidth;
+      const audioSource = ctx.createBufferSource();
+
+      const changeSong = path => {
+        const request = new XMLHttpRequest();
+        const url = path;
+        request.open("GET", url, true);
+        request.responseType = "arraybuffer";
+        request.onload = () => {
+          ctx.decodeAudioData(request.response, audioBuffer => {
+            console.log(audioBuffer);
+            audioSource.buffer = audioBuffer;
+            analyser = ctx.createAnalyser();
+            analyser.fftSize = 2048;
+
+            audioSource.connect(analyser);
+            //analyser.connect(gainNode);
+            analyser.connect(ctx.destination);
+            audioSource.start();
+            frequencyData = new Uint8Array(analyser.frequencyBinCount);
+          });
+        };
+        request.send();
+      };
+
+      play.addEventListener("click", initAudioContext);
+      function initAudioContext() {
+        //play.removeEventListener("click", initAudioContext);
+        // wake up AudioContext
+        //audioSource.start();
+        //changeSong("audio/4th/01_hanabira.m4a");
+        const request = new XMLHttpRequest();
+        const url = "audio/4th/01_hanabira.m4a";
+        request.open("GET", url, true);
+        request.responseType = "arraybuffer";
+        request.onload = () => {
+          ctx.decodeAudioData(request.response, audioBuffer => {
+            console.log(audioBuffer);
+            audioSource.buffer = audioBuffer;
+            analyser = ctx.createAnalyser();
+            analyser.fftSize = 2048;
+            audioSource.connect(analyser);
+            analyser.connect(ctx.destination);
+            audioSource.start();
+            frequencyData = new Uint8Array(analyser.frequencyBinCount);
+          });
+        };
+        request.send();
+
+        audioSource.start();
+      }
+
+      const render = () => {
+        requestAnimationFrame(render);
+        if (frequencyData) {
+          analyser.getByteFrequencyData(frequencyData);
+          //console.log(frequencyData);
+          canvas_ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+          let ll = canvas.width;
+          for (let i = 0, l = ll; i < l; i++) {
+            let val = canvas.height - (canvas.height * frequencyData[i]) / 255;
+            canvas_ctx.beginPath();
+            canvas_ctx.moveTo(i * 2, val);
+            canvas_ctx.lineTo(i * 2, canvas.height);
+            //canvas_ctx.strokeStyle = "rgba(50,50,50,.5)";
+            canvas_ctx.stroke();
+            canvas_ctx.closePath();
+          }
+        }
+      };
+      render();
+    </script>
+  </body>
+</html>

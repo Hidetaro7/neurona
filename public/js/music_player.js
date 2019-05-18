@@ -32,7 +32,6 @@ const MusicPlayer = Vue.component("music-player", {
       //console.dir(this.audio);
       this.audio.src = playerData[this.currentPlayIndex].src;
       this.audio.oncanplay = () => {
-        alert("hoge");
         this.audio.play();
       };
       this.audio.onended = () => {
