@@ -4,15 +4,10 @@
   z-index: 3;
   display: flex;
   align-items: flex-end;
-  .music-player-waver {
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    left: 0;
-  }
+  background-color: rgba(#333, 0.5);
   .music-player-inner {
     display: flex;
-    color: #444;
+    color: #ccc;
     line-height: 1.1;
     align-items: center;
     position: relative;
@@ -30,6 +25,15 @@
   }
   .song-album {
     font-size: 0.6rem;
+  }
+  .song-album-image {
+    height: 26px;
+    margin: 0 10px;
+    border-radius: 4px;
+  }
+  .btn {
+    font-size: 1.2rem;
+    line-height: 1;
   }
   .play-btn {
     padding: 0.5rem;
