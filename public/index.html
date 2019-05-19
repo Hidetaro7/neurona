@@ -25,8 +25,8 @@
     <title>ニューロナ オフィシャルサイト</title>
     <link
       rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
-      integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+      href="https://pro.fontawesome.com/releases/v5.8.2/css/all.css"
+      integrity="sha384-xVVam1KS4+Qt2OrFa+VdRUoXygyKIuNWUUUBZYv+n27STsJ7oDOHJgfF0bNKLMJF"
       crossorigin="anonymous"
     />
     <link
@@ -48,7 +48,7 @@
     <div id="app">
       <main class="content-wrapper" :class="{'is-show-drawer': showDrawer}">
         <div class="visual">
-          <music-player></music-player>
+          <music-player :release-data="releaseData.releases"></music-player>
         </div>
         <div class="main-content">
           <div class="artist-title">
@@ -69,8 +69,14 @@
                   <release-card :item-data="item"></release-card>
                 </swiper-slide>
                 <!-- Optional controls-->
-                <div class="swiper-button-prev" slot="button-prev"></div>
-                <div class="swiper-button-next" slot="button-next"></div>
+                <div
+                  class="swiper-button-prev swiper-button"
+                  slot="button-prev"
+                ></div>
+                <div
+                  class="swiper-button-next swiper-button"
+                  slot="button-next"
+                ></div>
               </swiper>
             </div>
           </div>
@@ -81,7 +87,9 @@
               <ul>
                 <li><a href="#" title="About us（自我介绍）">About us</a></li>
                 <li><a href="#" title="Release（工作）">Release</a></li>
-                <li><a href="./blog.php" title="Blog（一个博客）">Blog</a></li>
+                <li>
+                  <a href="http://neurona.jp" title="Blog（一个博客）">Blog</a>
+                </li>
                 <li>
                   <a href="mailto:company@tuqulore.com" title="Contact（查询）"
                     >Contact</a
@@ -94,16 +102,19 @@
                 class="iconbtn"
                 href="https://www.youtube.com/channel/UCRKVZiebYGhWRCDxY3OA8cg"
                 target="_blank"
+                title="Youtube"
                 ><i class="fab fa-youtube"></i></a
               ><a
                 class="iconbtn"
                 href="https://www.instagram.com/0_9_0_9_tomo/"
                 target="_blank"
+                title="Instagram"
                 ><i class="fab fa-instagram"></i></a
               ><a
                 class="iconbtn"
                 href="https://twitter.com/neurona_jp"
                 target="_blank"
+                title="Twitter"
                 ><i class="fab fa-twitter"></i
               ></a>
             </div>

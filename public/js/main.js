@@ -3,37 +3,43 @@ import MusicPlayer from "./music_player.js";
 const releaseData = {
   releases: [
     {
+      category: "5th",
       sub: "5th Mini Album（2019）",
       title: "放出！アイデンティティ",
       imgPath: "./img/jacket-5th.jpg",
-      isNew: true,
-      link: "#"
+      link: "https://linkco.re/9pVmqvyT",
+      isNew: true
     },
     {
+      category: "4th",
       sub: "4th Mini Album（2018）",
       title: "玉虫色ライオット",
       imgPath: "./img/jacket-4th.jpg",
       link: "https://linkco.re/ZQCHur7q"
     },
     {
+      category: "1st-single",
       sub: "1st Single（2018）",
       title: "サイのツノのように",
       imgPath: "./img/jacket_1st-single.jpg",
       link: "https://linkco.re/srvAAPb8"
     },
     {
+      category: "3rd",
       sub: "3rd Mini Album（2018）",
       title: "空蝉〜Utsusemi〜",
       imgPath: "./img/jacket-3rd.jpg",
       link: "https://linkco.re/sR81T1EB"
     },
     {
+      category: "2nd",
       sub: "2nd Mini Album（2018）",
       title: "ナガスギタ春",
       imgPath: "./img/jacket-2nd_s.jpg",
       link: "https://linkco.re/Pc39XsmS"
     },
     {
+      category: "1st",
       sub: "1st Mini Album（2017）",
       title: "突き放すよ、これが愛だ君への愛だ",
       imgPath: "./img/jacket-1st.jpg",
