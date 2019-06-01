@@ -54,13 +54,15 @@ const MusicPlayer = Vue.component("music-player", {
         category: currentData.category
       };
       this.audio.src = playerData[this.currentPlayIndex].src;
-      const playPromise = this.audio.play();
-      if (playPromise !== undefined) {
-        playPromise.catch(error => {
-          this.audio.muted = false;
-          this.audio.play();
-        });
-      }
+      setTimeout(() => {
+        const playPromise = this.audio.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(error => {
+            this.audio.muted = false;
+            this.audio.play();
+          });
+        }
+      }, 100);
       //this.audio.oncanplay = () => {};
       this.audio.onended = () => {
         this.currentPlayIndex++;
@@ -92,7 +94,7 @@ const MusicPlayer = Vue.component("music-player", {
 			<div class="play-volume btn" :class="{'is-mute': isMute}" @click="clickMuteBtn"><i class="btn-mute-off fas fa-volume-mute"></i><i class="btn-mute-on fas fa-volume-up"></i><div class="tooltip">SOUND <span v-if="isMute">ON</span><span v-if="!isMute">OFF</span></div></div>
 			<div class="play-btn btn" :class="{'is-play': isPlay}" @click="clickPlayBtn"><i class="btn-play fas fa-play"></i><i class="btn-pause fas fa-pause"></i></div>
 			<div class="song-info" @click="showAlbumDetail = !showAlbumDetail">
-				<div class="arrow-up"><i class="fal fa-chevron-up"></i></div>
+				<div class="arrow-up"><i class="fas fa-angle-up"></i></div>
 				<div class="song-info-inner">
 					<img class="song-album-image" :src="currentSongInfo.img" :alt="currentSongInfo.album" />
 					<div class="song-info-main">
@@ -114,7 +116,7 @@ const MusicPlayer = Vue.component("music-player", {
 					<div class="link">
 						<a target="_blank" :href="currentAlbumData.link" title="（购买 | 購買）">購入</a>
 					</div>
-					<div class="close-btn" @click="showAlbumDetail=false"><i class="fal fa-times"></i></div>
+					<div class="close-btn" @click="showAlbumDetail=false"><i class="fas fa-times"></i></div>
 				</div>
 				<ol class="song-list">
 					<li v-for="(item, index) in currentAlbumData.songs" :key="index">

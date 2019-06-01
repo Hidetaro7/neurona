@@ -1,0 +1,95 @@
+extends ../_base
+
+block title
+	title ニューロナを支えてくださるみなさま
+block content
+	#app.sub-content
+		main.content-wrapper(:class="{'is-show-drawer': showDrawer}")
+			.main-content
+
+				section.aboutus
+					h3 ニューロナを支えてくださるみなさま
+					p いつもありがとうございます。
+
+				section.members
+					ul
+						li
+							h4
+								img.members-figure(src="/img/member_img/satomegu.jpg", alt="里 恵")
+								|里 恵（RADIO PERSONALITY）
+							p.about
+								|地元ラジオ“エフエムせとうち”にて「サトメグ放送局」の番組を持ち現在引き続き、パーソナリティを務める。
+								br
+								|音源ではギターも一部担当。2018年夏頃からInstagram上で、ニューロナの楽曲のギター弾き語りを公開し始める。滑稽なようでどこかひねくれたり毒づいたり、実生活に基づいたリアルな歌を描く傾向にある。
+							.sns
+								a(href="https://satomeguwebsite.wixsite.com/home/satomegumi" target="_blank") サトメグ さんの公式サイト
+								br
+								a(href="https://satomeguwebsite.wixsite.com/home/satomegumi" target="_blank") エフエムせとうち
+
+						li
+							h4
+								img.members-figure(src="/img/member_img/ituka.jpg", alt="一束")
+								|一束（ILLUSTRATOR）
+							p.about
+								|関西出身のフリーイラストレーター。「やわらかく愛らしく」をモットーに、ノスタルジックで、動物や少女をモチーフにした作品を中心に描いています。また、どことなく「和」を感じる要素を取り入れるよう心がけています。
+								
+							.sns
+								a(href="http://1-tuka.com/" target="_blank") よひらさか
+
+						li
+							h4
+								img.members-figure(src="/img/member_img/kama.jpg", alt="Sugamans Kama")
+								|Sugamans Kama（魂の音楽家）
+							p.about
+								|心、揺さぶる!サウンドが僕の全てです。
+							.sns
+								a(href="https://www.instagram.com/sugamans5880/" target="_blank") Instagram
+
+
+						li
+							h4
+								img.members-figure(src="/img/member_img/run.jpg", alt="run")
+								|run（化学物質過敏症研究家）
+							p.about
+								|Tomoちゃんの夢を実現させたいと思い出来る協力は何でもします。私は病気に対してのアドバイスなどをしていますがTomoちゃんは優秀な生徒と言えました、夢の実現が楽しみです＾＾
+							.sns
+								a(href="https://ameblo.jp/cs-es-by-run/" target="_blank") 化学物質過敏症runのブログ
+
+						li
+							h4
+								img.members-figure(src="/img/member_img/vai_hide.jpg", alt="Vai&amp;Hide Ibanez JEM Guitar")
+								|Vai&amp;Hide Ibanez JEM Guitar（ギタリスト）
+							p.about
+								|Twitterをメインにインターネット上の世界で音楽活動するギタリスト。世界的に有名なギタリストSteve Vaiに傾倒し、オリジナルのインスト曲を披露。Youtubeでは様々なアーティストとのコラボレーションも積極的に行なっている。
+							.sns
+								a(href="www.youtube.com/channel/UCLmqJWoOcuwQKKABizNZhSQ" target="_blank") Youtubeチャンネル
+								br
+								a(href="https://www.instagram.com/vaihideibanezjem/" target="_blank") Instagram
+								br
+								a(href="https://twitter.com/vai_jem" target="_blank") Twitter
+
+						li
+							h4
+								img.members-figure(src="/img/member_img/chiaking.jpg", alt="Chiaki")
+								|Chiaki（ベーシスト）
+							p.about
+								|さまざまなバンド活動を経て、現在は講師業やサポートベーシストとして活動している。
+							.sns
+								a(href="https://twitter.com/chiaking_bass" target="_blank") Twitter
+
+						li
+							h4
+								img.members-figure(src="/img/member_img/chun.jpg", alt="C.EARL GREY")
+								|C.EARL GREY（シンガーソングライター）
+							p.about
+								|インターネット上の世界で音楽活動するアーティスト。哀愁を帯びた少し掠れめの歌声とダークな世界観を持ち、暗闇の中の光を求めて表現者であり続ける。
+							.sns
+								a(href="https://www.youtube.com/channel/UC5wyS4td2-q4-Fe5uiJd75Q" target="_blank") Youtubeチャンネル
+
+			include ../_header
+
+			a.menu-trigger(href='#', @click="showDrawer=!showDrawer", :class="{active: showDrawer}")
+				span
+				span
+				span
+	script(type="module" src="/js/main.js")

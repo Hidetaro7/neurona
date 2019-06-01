@@ -155,3 +155,35 @@ a {
 .swiper-button-next {
   right: 10px;
 }
+
+// 下層レイヤー
+
+.sub-content {
+  .main-content {
+    padding-top: 3rem;
+    max-width: 1024px;
+    margin: auto;
+    text-align: left;
+    color: #ccc;
+    font-size: 80%;
+    h3 {
+      font-size: 1.8rem;
+    }
+    h4 {
+      font-size: 1.3rem;
+      margin-bottom: 0.2rem;
+    }
+    .members-figure {
+      width: 40px;
+      height: auto;
+      margin-right: 10px;
+      border-radius: 8px;
+      vertical-align: middle;
+      margin-bottom: 5px;
+    }
+    p {
+      margin-top: 0;
+      font-size: 100%;
+    }
+  }
+}

@@ -6,7 +6,7 @@ block content
 	#app
 		main.content-wrapper(:class="{'is-show-drawer': showDrawer}")
 			.visual
-				music-player
+				music-player( :release-data="releaseData.releases")
 			.main-content
 				.artist-title
 					h1.main-title
@@ -20,12 +20,10 @@ block content
 							swiper-slide(v-for="item in releaseData.releases")
 								release-card( :item-data="item")
 							// Optional controls
-							.swiper-button-prev(slot="button-prev")
-							.swiper-button-next(slot="button-next")
 			include ./_header
 
 			a.menu-trigger(href='#', @click="showDrawer=!showDrawer", :class="{active: showDrawer}")
 				span
 				span
 				span
-	script(type="module" src="./js/main.js")
+	script(type="module" src="/js/main.js")

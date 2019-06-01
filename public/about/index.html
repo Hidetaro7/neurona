@@ -10,7 +10,7 @@
     <meta property="og:url" content="https://tuqulore.com/neurona/">
     <meta property="og:site_name" content="ニューロナ オフィシャルサイト">
     <meta property="og:description" content="誰にでも耳に残るメロディーやフレーズがとてもキャッチー。音楽集団「ニューロナ」">
-    <title>ニューロナ オフィシャルサイト</title>
+    <title>ニューロナとは？</title>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-xVVam1KS4+Qt2OrFa+VdRUoXygyKIuNWUUUBZYv+n27STsJ7oDOHJgfF0bNKLMJF" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
@@ -22,27 +22,33 @@
     <link rel="stylesheet" href="/css/style.css?20190501">
   </head>
   <body>
-    <div id="app">
+    <div class="sub-content" id="app">
       <main class="content-wrapper" :class="{'is-show-drawer': showDrawer}">
-        <div class="visual">
-          <music-player :release-data="releaseData.releases"></music-player>
-        </div>
         <div class="main-content">
-          <div class="artist-title">
-            <h1 class="main-title"><img src="./img/main_ttl.png" alt="ニューロナ"></h1>
-            <h2 class="sub-title"><span>neurona | 神经元我的幸福</span></h2>
-          </div>
-          <div class="release">
-            <div class="related-area">
-              <swiper ref="awesomeSwiperA" :options="swiperOptionA" @set-translate="onSetTranslate">
-                <!-- slides-->
-                <swiper-slide v-for="item in releaseData.releases">
-                  <release-card :item-data="item"></release-card>
-                </swiper-slide>
-                <!-- Optional controls-->
-              </swiper>
-            </div>
-          </div>
+          <section class="aboutus">
+            <h3>ニューロナについて</h3>
+            <p>2017年12月結成。音楽を中心にものづくりをしているユニット。VocalのTomoが化学物質過敏症という環境病のためライブハウスでの演奏ができず、インターネットの世界で活動している。パンク・EDM・レゲエ・古典音楽…！？音楽ジャンルに節操なく、キャッチーなメロディの裏に、生きづらさや報われない思い、人間の弱さや強さを紡ぐ。</p>
+            <p>名前の由来はニューロン（神経細胞）＋ロナ（私の幸せ）の造語。</p>
+          </section>
+          <section class="members">
+            <ul>
+              <li>
+                <h4>Tomo（Vocal）</h4>
+                <div class="about">作詞・作曲・編曲、絵・動画制作。<br>音源ではギターも一部担当。2018年夏頃からInstagram上で、ニューロナの楽曲のギター弾き語りを公開し始める。滑稽なようでどこかひねくれたり毒づいたり、実生活に基づいたリアルな歌を描く傾向にある。</div>
+                <div class="sns"><a href="https://www.instagram.com/0_9_0_9_tomo/" target="_blank">Instagram</a><br><a href="https://twitter.com/T_o_m_o_mu" target="_blank">twitter</a></div>
+              </li>
+              <li>
+                <h4>Hideki（Guitar）</h4>
+                <div class="about">作詞・作曲・編曲、Web制作。<br>音源ではベース、プログラミングも担当。本業はWebデザイナー。結成時は作曲やサウンドプロデュースをメインに行なっていたが、2018年秋から始まったInstagramライブをきっかけにギターも担当。</div>
+                <div class="sns"><a href="https://www.instagram.com/hideki_akiba/" target="_blank">Instagram</a><br><a href="https://twitter.com/Hidetaro7" target="_blank">twitter</a></div>
+              </li>
+              <li>
+                <h4>ちくわ（リーダー）</h4>
+                <div class="about">広報担当、約5歳<br>音寝たり食べたりいたずらしたりする。ニューロナより先にTwitterデビューしており、そこそこの人気もあるようだ…。</div>
+                <div class="sns"><a href="https://www.instagram.com/chikuwa_ya/" target="_blank">Instagram</a><br><a href="https://twitter.com/chikuwa_cats" target="_blank">twitter</a></div>
+              </li>
+            </ul>
+          </section>
         </div>
         <div class="main-header">
           <div class="main-header-inner">

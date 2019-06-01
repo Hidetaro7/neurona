@@ -76,13 +76,13 @@ const apps = new Vue({
     releaseData: releaseData,
     showDrawer: false,
     swiperOptionA: {
-      pagination: {
+      /* pagination: {
         el: ".swiper-pagination"
       },
       navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev"
-      },
+      }, */
       breakpoints: {
         2048: {
           slidesPerView: 4,
